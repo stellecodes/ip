@@ -31,4 +31,9 @@ public class TaskList {
         this.tasks[num - 1].mark();
         System.out.println("Yay! I've marked this task as done:\n\t" + this.tasks[num - 1].display());
     }
+
+    public void unmark(int num) {
+        this.tasks[num - 1].unmark();
+        System.out.println("Okay, I've marked this task as not done:\n\t" + this.tasks[num - 1].display());
+    }
 }

@@ -14,4 +14,8 @@ public class Task {
     public void mark() {
         this.completed = true;
     }
+
+    public void unmark() {
+        this.completed = false;
+    }
 }

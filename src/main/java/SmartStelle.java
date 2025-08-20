@@ -27,6 +27,12 @@ public class SmartStelle {
                 String taskNum = input.substring(5);
                 int num = Integer.parseInt(taskNum); // convert String to int
                 list.mark(num);
+                System.out.println(line);
+            } else if (input.startsWith("unmark")) {
+                String taskNum = input.substring(7);
+                int num = Integer.parseInt(taskNum); // convert String to int
+                list.unmark(num);
+                System.out.println(line);
             } else {
                 list.add(input);
             }

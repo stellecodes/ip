@@ -2,7 +2,10 @@ public class Task {
     private String taskName;
     private boolean completed;
 
-    public Task(String taskName) {
+    public Task(String taskName) throws StelleException {
+        if (taskName.isEmpty()) {
+            throw new StelleException("Why you doing nothing.");
+        }
         this.taskName = taskName;
         this.completed = false;
     }

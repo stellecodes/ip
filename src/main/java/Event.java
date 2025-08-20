@@ -2,7 +2,7 @@ public class Event extends Task {
     private String start;
     private String end;
 
-    public Event(String start, String end, String name) {
+    public Event(String start, String end, String name) throws StelleException {
         super(name);
         this.start = start;
         this.end = end;

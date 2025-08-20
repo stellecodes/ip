@@ -1,7 +1,7 @@
 public class Deadline extends Task {
     private String date;
 
-    public Deadline(String name, String date) {
+    public Deadline(String name, String date) throws StelleException {
         super(name);
         this.date = date;
     }

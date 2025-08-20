@@ -12,11 +12,12 @@ public class TaskList {
             if (this.tasks[i] == null) {
                 this.tasks[i] = task;
                 System.out.println(
-                        "\tadded new task: " + task.getName()
-                                + "\n\n____________________________________________________________\n");
+                        "\tadded new task: " + task.getName());
                 break;
             }
         }
+        System.out.println("Now you have " + total
+                + " tasks in the list.\n\n____________________________________________________________\n");
     }
 
     public void display() {

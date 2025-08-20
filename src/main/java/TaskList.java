@@ -9,7 +9,9 @@ public class TaskList {
         for (int i = 0; i < this.tasks.length; i++) {
             if (this.tasks[i] == null) {
                 this.tasks[i] = task;
-                System.out.println("added new task: " + task);
+                System.out.println(
+                        "\tadded new task: " + task
+                                + "\n\n____________________________________________________________\n");
                 break;
             }
         }
@@ -21,7 +23,7 @@ public class TaskList {
                 break;
             }
             int num = i + 1;
-            System.out.println(num + ". " + tasks[i] + "\n");
+            System.out.println("\t" + num + ". " + tasks[i]);
         }
     }
 }

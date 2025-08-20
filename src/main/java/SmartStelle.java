@@ -22,12 +22,13 @@ public class SmartStelle {
                 break;
             } else if (input.equals("list")) {
                 list.display();
+                System.out.println(line);
             } else {
                 list.add(input);
             }
         }
 
-        System.out.println("Bye, talk to you next time!");
+        System.out.println("\tBye, talk to you next time!" + line);
 
         sc.close();
     }

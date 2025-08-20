@@ -1,16 +1,16 @@
 public class TaskList {
-    private String[] tasks;
+    private Task[] tasks;
 
     public TaskList() {
-        this.tasks = new String[100];
+        this.tasks = new Task[100];
     }
 
-    public void add(String task) {
+    public void add(String taskName) {
         for (int i = 0; i < this.tasks.length; i++) {
             if (this.tasks[i] == null) {
-                this.tasks[i] = task;
+                this.tasks[i] = new Task(taskName);
                 System.out.println(
-                        "\tadded new task: " + task
+                        "\tadded new task: " + taskName
                                 + "\n\n____________________________________________________________\n");
                 break;
             }
@@ -23,7 +23,7 @@ public class TaskList {
                 break;
             }
             int num = i + 1;
-            System.out.println("\t" + num + ". " + tasks[i]);
+            System.out.println("\t" + num + ". " + tasks[i].getName());
         }
     }
 }

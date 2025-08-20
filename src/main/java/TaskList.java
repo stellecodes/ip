@@ -1,16 +1,18 @@
 public class TaskList {
     private Task[] tasks;
+    private int total = 0;
 
     public TaskList() {
         this.tasks = new Task[100];
     }
 
-    public void add(String taskName) {
+    public void add(Task task) {
+        this.total += 1;
         for (int i = 0; i < this.tasks.length; i++) {
             if (this.tasks[i] == null) {
-                this.tasks[i] = new Task(taskName);
+                this.tasks[i] = task;
                 System.out.println(
-                        "\tadded new task: " + taskName
+                        "\tadded new task: " + task.getName()
                                 + "\n\n____________________________________________________________\n");
                 break;
             }

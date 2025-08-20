@@ -11,6 +11,10 @@ public class Task {
         return "[" + (completed ? "X" : " ") + "] " + this.taskName;
     }
 
+    public String getName() {
+        return taskName;
+    }
+
     public void mark() {
         this.completed = true;
     }

@@ -33,8 +33,14 @@ public class SmartStelle {
                 int num = Integer.parseInt(taskNum); // convert String to int
                 list.unmark(num);
                 System.out.println(line);
+            } else if (input.startsWith("todo")) {
+                list.add(new ToDo(input.substring(5)));
+            } else if (input.startsWith("deadline")) {
+                String[] parts = input.substring(9).split(" /by");
+                list.add(new Deadline(parts[0], parts[1]));
             } else {
-                list.add(input);
+                String[] parts = input.substring(6).split(" /");
+                list.add(new Event(parts[1].substring(5), parts[2].substring(3), parts[0]));
             }
         }
 

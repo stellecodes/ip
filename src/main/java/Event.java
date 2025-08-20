@@ -7,4 +7,9 @@ public class Event extends Task {
         this.start = start;
         this.end = end;
     }
+
+    @Override
+    public String display() {
+        return "[E]" + super.display() + " from " + start + " to " + end;
+    }
 }

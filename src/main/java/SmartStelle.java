@@ -20,7 +20,8 @@ public class SmartStelle {
             String input = sc.nextLine();
             if (input.equals("bye")) {
                 break;
-            } else if (input.equals("list")) { // do nothing for now
+            } else if (input.equals("list")) {
+                list.display();
             } else {
                 list.add(input);
             }

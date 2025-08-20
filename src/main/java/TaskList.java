@@ -14,4 +14,14 @@ public class TaskList {
             }
         }
     }
+
+    public void display() {
+        for (int i = 0; i < this.tasks.length; i++) {
+            if (tasks[i] == null) {
+                break;
+            }
+            int num = i + 1;
+            System.out.println(num + ". " + tasks[i] + "\n");
+        }
+    }
 }

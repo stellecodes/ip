@@ -28,11 +28,19 @@ public class TaskList {
     }
 
     public void mark(int num) {
+        if (this.tasks[num - 1] == null) {
+            System.out.println("\tThere is no task " + num);
+            return;
+        }
         this.tasks[num - 1].mark();
         System.out.println("Yay! I've marked this task as done:\n\t" + this.tasks[num - 1].display());
     }
 
     public void unmark(int num) {
+        if (this.tasks[num - 1] == null) {
+            System.out.println("\tThere is no task " + num);
+            return;
+        }
         this.tasks[num - 1].unmark();
         System.out.println("Okay, I've marked this task as not done:\n\t" + this.tasks[num - 1].display());
     }

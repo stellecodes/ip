@@ -23,6 +23,10 @@ public class SmartStelle {
             } else if (input.equals("list")) {
                 list.display();
                 System.out.println(line);
+            } else if (input.startsWith("mark")) {
+                String taskNum = input.substring(5);
+                int num = Integer.parseInt(taskNum); // convert String to int
+                list.mark(num);
             } else {
                 list.add(input);
             }

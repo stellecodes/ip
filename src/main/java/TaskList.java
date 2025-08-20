@@ -23,7 +23,12 @@ public class TaskList {
                 break;
             }
             int num = i + 1;
-            System.out.println("\t" + num + ". " + tasks[i].getName());
+            System.out.println("\t" + num + "." + tasks[i].display());
         }
+    }
+
+    public void mark(int num) {
+        this.tasks[num - 1].mark();
+        System.out.println("Yay! I've marked this task as done:\n\t" + this.tasks[num - 1].display());
     }
 }

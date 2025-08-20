@@ -7,7 +7,11 @@ public class Task {
         this.completed = false;
     }
 
-    public String getName() {
-        return this.taskName;
+    public String display() {
+        return "[" + (completed ? "X" : " ") + "] " + this.taskName;
+    }
+
+    public void mark() {
+        this.completed = true;
     }
 }

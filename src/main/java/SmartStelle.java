@@ -9,14 +9,17 @@ public class SmartStelle {
                 " \\_____    \\_____ \n" +
                 "       \\         \\\n" +
                 "  _____/   _____/\n";
-        System.out.println(logo + "Hello! I am SmartStelle. What can I help you with?");
+
+        String line = "\n____________________________________________________________\n";
+        System.out.println(logo
+                + "Hello! I am SmartStelle. What can I help you with?" + line);
 
         while (true) {
             String input = sc.nextLine();
             if (input.equals("bye")) {
                 break;
             } else {
-                System.out.println(input);
+                System.out.println("\t" + input + line);
             }
         }
 

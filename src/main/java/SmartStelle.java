@@ -49,6 +49,13 @@ public class SmartStelle {
                         throw new StelleException("Why you dk how long.");
                     }
                     list.add(new Event(parts[1].substring(5), parts[2].substring(3), parts[0]));
+                } else if (input.startsWith("delete")) {
+                    String numberString = input.substring(6);
+                    if (numberString.isEmpty()) {
+                        throw new StelleException("Why you deleting nothing.");
+                    }
+                    int num = Integer.parseInt(numberString.substring(1));
+                    list.delete(num);
                 } else {
                     System.out.println("\nWhat are you saying..............\n");
                 }

@@ -33,4 +33,16 @@ public class TaskList {
         this.tasks.get(num - 1).unmark();
         System.out.println("Okay, I've marked this task as not done:\n\t" + this.tasks.get(num - 1).display());
     }
+
+    public void delete(int num) throws StelleException {
+        if (num > this.tasks.size()) {
+            throw new StelleException("That task doesn't even exist.");
+        }
+        Task task = this.tasks.get(num - 1);
+        this.tasks.remove(num - 1);
+        this.total -= 1;
+        System.out.println("Okay, I've removed this task:\n\t" + task.display());
+        System.out.println("Now you have " + total
+                + " tasks in the list.\n\n____________________________________________________________\n");
+    }
 }

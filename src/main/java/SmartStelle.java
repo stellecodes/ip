@@ -14,12 +14,15 @@ public class SmartStelle {
         System.out.println(logo
                 + "Hello! I am SmartStelle. What can I help you with?" + line);
 
+        TaskList list = new TaskList();
+
         while (true) {
             String input = sc.nextLine();
             if (input.equals("bye")) {
                 break;
+            } else if (input.equals("list")) { // do nothing for now
             } else {
-                System.out.println("\t" + input + line);
+                list.add(input);
             }
         }
 

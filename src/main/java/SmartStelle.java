@@ -66,7 +66,7 @@ public class SmartStelle {
             }
         }
 
-        System.out.println("\tBye, talk to you next time!" + line);
+        System.out.println("    Bye, talk to you next time!" + line);
 
         sc.close();
     }

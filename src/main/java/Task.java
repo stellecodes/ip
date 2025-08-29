@@ -1,17 +1,17 @@
 public abstract class Task {
     private String taskName;
-    private boolean completed;
+    private boolean isCompleted;
 
     public Task(String taskName, boolean isCompleted) throws StelleException {
         if (taskName.isEmpty()) {
             throw new StelleException("Why you doing nothing.");
         }
         this.taskName = taskName;
-        this.completed = isCompleted;
+        this.isCompleted = isCompleted;
     }
 
     public String display() {
-        return "[" + (completed ? "X" : " ") + "] " + this.taskName;
+        return "[" + (isCompleted ? "X" : " ") + "] " + this.taskName;
     }
 
     public String getName() {
@@ -19,15 +19,15 @@ public abstract class Task {
     }
 
     public boolean getIsCompleted() {
-        return completed;
+        return isCompleted;
     }
 
     public void mark() {
-        this.completed = true;
+        this.isCompleted = true;
     }
 
     public void unmark() {
-        this.completed = false;
+        this.isCompleted = false;
     }
 
     public abstract String toSaveFormat();

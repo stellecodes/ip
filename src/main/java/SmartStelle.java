@@ -44,11 +44,11 @@ public class SmartStelle {
                     storage.save(list.getAll());
                     System.out.println(line);
                 } else if (input.startsWith("todo")) {
-                    String task = input.substring(4);
+                    String task = input.substring(4).trim();
                     list.add(new ToDo(task, false));
                     storage.save(list.getAll());
                 } else if (input.startsWith("deadline")) {
-                    String[] parts = input.substring(8).split(" /by");
+                    String[] parts = input.substring(8).trim().split("\\s*/by\\s+", 2);
                     if (parts.length == 1) {
                         throw new StelleException("Why no deadline.");
                     }

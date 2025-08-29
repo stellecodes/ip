@@ -18,4 +18,4 @@ text-ui-test/EXPECTED-UNIX.TXT
 # ignore all class files
 *.class
 
-data/duke.txt
+/data/duke.txt

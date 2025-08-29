@@ -15,6 +15,6 @@ public class Event extends Task {
 
     public String toSaveFormat() {
         return "E | " + (this.getIsCompleted() ? "1" : "0")
-                + this.getName() + " | " + this.start + " | " + this.end;
+                + " | " + this.getName() + " | " + this.start + " | " + this.end;
     }
 }

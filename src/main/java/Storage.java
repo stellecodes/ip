@@ -27,7 +27,7 @@ public class Storage {
             String type = split[0];
             String completion = split[1];
             String taskName = split[2];
-            boolean isCompleted = completion == "1";
+            boolean isCompleted = completion.equals("1");
 
             if (type.equals("T")) {
                 tasks.add(new ToDo(taskName, isCompleted));

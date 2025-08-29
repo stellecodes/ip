@@ -8,6 +8,10 @@ public class TaskList {
         this.tasks = new ArrayList<Task>();
     }
 
+    public TaskList(ArrayList<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     public void add(Task task) {
         this.total += 1;
         this.tasks.add(task);
@@ -44,5 +48,9 @@ public class TaskList {
         System.out.println("Okay, I've removed this task:\n    " + task.display());
         System.out.println("Now you have " + total
                 + " tasks in the list.\n\n____________________________________________________________\n");
+    }
+
+    public ArrayList<Task> getAll() {
+        return this.tasks;
     }
 }

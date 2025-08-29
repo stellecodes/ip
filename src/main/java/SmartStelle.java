@@ -55,7 +55,7 @@ public class SmartStelle {
                     list.add(new Deadline(parts[0], parts[1], false));
                     storage.save(list.getAll());
                 } else if (input.startsWith("event")) {
-                    String[] parts = input.substring(5).split(" /");
+                    String[] parts = input.substring(6).split(" /");
                     if (parts.length < 2) {
                         throw new StelleException("Why you dk how long.");
                     }

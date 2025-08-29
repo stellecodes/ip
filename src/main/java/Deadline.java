@@ -1,14 +1,21 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Deadline extends Task {
-    private String date;
+    private LocalDateTime date;
 
     public Deadline(String name, String date, boolean isCompleted) throws StelleException {
         super(name, isCompleted);
-        this.date = date;
+        this.date = LocalDateTime.parse(date);
+    }
+
+    private String formatDate() {
+        return this.date.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm"));
     }
 
     @Override
     public String display() {
-        return "[D]" + super.display() + " by" + date;
+        return "[D]" + super.display() + " by " + formatDate();
     }
 
     public String toSaveFormat() {

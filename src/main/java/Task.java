@@ -1,13 +1,13 @@
-public class Task {
+public abstract class Task {
     private String taskName;
     private boolean completed;
 
-    public Task(String taskName) throws StelleException {
+    public Task(String taskName, boolean isCompleted) throws StelleException {
         if (taskName.isEmpty()) {
             throw new StelleException("Why you doing nothing.");
         }
         this.taskName = taskName;
-        this.completed = false;
+        this.completed = isCompleted;
     }
 
     public String display() {
@@ -18,6 +18,10 @@ public class Task {
         return taskName;
     }
 
+    public boolean getIsCompleted() {
+        return completed;
+    }
+
     public void mark() {
         this.completed = true;
     }
@@ -25,4 +29,6 @@ public class Task {
     public void unmark() {
         this.completed = false;
     }
+
+    public abstract String toSaveFormat();
 }

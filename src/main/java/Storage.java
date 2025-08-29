@@ -25,19 +25,28 @@ public class Storage {
             String[] split = line.split(" \\| ");
 
             String type = split[0];
-            if (type == "T") {
-                tasks.add(new ToDo(split[1]));
-            } else if (type == "D") {
-                tasks.add(new Deadline(split[1], split[2]));
+            String completion = split[1];
+            String taskName = split[2];
+            boolean isCompleted = completion == "1";
+
+            if (type.equals("T")) {
+                tasks.add(new ToDo(taskName, isCompleted));
+            } else if (type.equals("D")) {
+                tasks.add(new Deadline(taskName, split[3], isCompleted));
             } else {
-                tasks.add(new Event(split[2], split[3], split[1]));
+                tasks.add(new Event(split[3], split[4], taskName, isCompleted));
             }
         }
+        sc.close();
         return tasks;
     }
 
-    public void save(ArrayList<Task> tasks) {
+    public void save(ArrayList<Task> tasks) throws IOException {
         FileWriter writer = new FileWriter(this.path);
-        for 
+        for (Task task : tasks) {
+            writer.write(task.toSaveFormat() + System.lineSeparator());
+        }
+
+        writer.close();
     }
 }

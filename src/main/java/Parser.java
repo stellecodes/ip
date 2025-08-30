@@ -6,6 +6,7 @@ public class Parser {
             return -1;
         } else if (input.equals("list")) {
             list.display();
+            ui.showLine();
         } else if (input.startsWith("mark")) {
             String taskNum = input.substring(5);
             int num = Integer.parseInt(taskNum); // convert String to int

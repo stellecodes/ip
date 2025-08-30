@@ -10,6 +10,7 @@ public class TaskList {
 
     public TaskList(ArrayList<Task> tasks) {
         this.tasks = tasks;
+        this.total = tasks.size();
     }
 
     public void add(Task task) {

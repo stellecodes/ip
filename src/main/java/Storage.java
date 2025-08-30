@@ -9,7 +9,7 @@ public class Storage {
         this.path = path;
     }
 
-    public ArrayList<Task> load() throws Exception {
+    public ArrayList<Task> load() throws IOException, StelleException {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(path);
 

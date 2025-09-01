@@ -1,16 +1,17 @@
 package smartstelle;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ToDoTest {
     @Test
-    public void dummyTest() {
-        assertEquals(2, 2);
-    }
-
-    @Test
-    public void anotherDummyTest() {
-        assertEquals(4, 4);
+    public void testConstructorValid() throws StelleException {
+        ToDo todo = new ToDo("Ate", false);
+        assertNotNull(todo);
+        assertEquals("Ate", todo.getName());
+        assertFalse(todo.getIsCompleted());
     }
 }

@@ -39,6 +39,7 @@ public class Storage {
                 tasks.add(new Event(split[3], split[4], taskName, isCompleted));
             }
         }
+
         sc.close();
         return tasks;
     }

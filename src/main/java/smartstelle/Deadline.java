@@ -24,4 +24,8 @@ public class Deadline extends Task {
         return "D | " + (this.getIsCompleted() ? "1" : "0")
                 + " | " + this.getName() + " | " + this.date;
     }
+
+    public LocalDateTime getDate() {
+        return this.date;
+    }
 }

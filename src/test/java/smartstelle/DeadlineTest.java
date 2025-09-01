@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DeadlineTest {
     @Test
@@ -17,5 +18,12 @@ public class DeadlineTest {
         assertEquals("Eat", deadline.getName());
         assertFalse(deadline.getIsCompleted());
         assertEquals(LocalDateTime.parse(date), deadline.getDate());
+    }
+
+    @Test
+    public void testConstructorInvalidName() {
+        assertThrows(StelleException.class, () -> {
+            new Deadline("", "2025-08-12T18:00", false);
+        });
     }
 }

@@ -1,3 +1,5 @@
+package smartstelle;
+
 public class ToDo extends Task {
     public ToDo(String name, boolean isCompleted) throws StelleException {
         super(name, isCompleted);

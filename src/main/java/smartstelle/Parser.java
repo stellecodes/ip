@@ -1,3 +1,5 @@
+package smartstelle;
+
 import java.io.IOException;
 
 public class Parser {

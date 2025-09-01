@@ -1,3 +1,5 @@
+package smartstelle;
+
 import java.util.Scanner;
 
 public class Ui {

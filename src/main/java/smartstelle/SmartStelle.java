@@ -2,11 +2,27 @@ package smartstelle;
 
 import java.io.IOException;
 
+/**
+ * The SmartStelle class is the main entry point for the SmartStelle task
+ * management application.
+ * It handles initialization of the Storage, TaskList, and Ui components,
+ * and manages the main program loop for reading and executing user commands.
+ */
 public class SmartStelle {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
 
+    /**
+     * Constructs a SmartStelle application instance with a specified file path for
+     * storage.
+     * <p>
+     * Initializes the UI, Storage, and TaskList. If the storage file cannot be
+     * read,
+     * starts with an empty TaskList.
+     *
+     * @param filePath The file path for storing task data.
+     */
     public SmartStelle(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -18,6 +34,14 @@ public class SmartStelle {
         }
     }
 
+    /**
+     * Runs the main loop of the SmartStelle application.
+     * <p>
+     * Continuously reads user commands via the UI, parses and executes them using
+     * the Parser,
+     * until the user inputs "bye" to exit.
+     * Errors encountered during command execution are displayed to the user.
+     */
     public void run() {
         ui.showWelcome();
 

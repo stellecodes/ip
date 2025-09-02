@@ -2,7 +2,27 @@ package smartstelle;
 
 import java.io.IOException;
 
+/**
+ * The Parser class is responsible for interpreting user input commands
+ * and executing corresponding actions on the TaskList, Storage, and UI.
+ * 
+ * It handles commands such as adding tasks, marking/unmarking tasks,
+ * deleting tasks, listing tasks, and exiting the program.
+ */
 public class Parser {
+
+    /**
+     * Parses and executes a user command.
+     *
+     * @param input   The user input command as a string.
+     * @param list    The TaskList containing all current tasks.
+     * @param storage The Storage object for saving tasks to file.
+     * @param ui      The Ui object for displaying messages and lines.
+     * @return -1 if the input is "bye" (to signal program exit), otherwise 0.
+     * @throws IOException     If an error occurs when saving to storage.
+     * @throws StelleException If the user input is invalid or incomplete (e.g.,
+     *                         missing deadline or event duration).
+     */
     public static int parse(String input, TaskList list, Storage storage, Ui ui) throws IOException, StelleException {
         if (input.equals("bye")) {
             return -1;

@@ -56,4 +56,16 @@ public class TaskList {
     public ArrayList<Task> getAll() {
         return this.tasks;
     }
+
+    public void printTasksWithKeyword(String keyword) {
+        ArrayList<Task> selectedTasks = new ArrayList<>();
+        for (Task task : this.tasks) {
+            if (task.matches(keyword)) {
+                selectedTasks.add(task);
+            }
+        }
+
+        TaskList selectedTasksList = new TaskList(selectedTasks);
+        selectedTasksList.display();
+    }
 }

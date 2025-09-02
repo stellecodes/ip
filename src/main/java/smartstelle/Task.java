@@ -32,5 +32,9 @@ public abstract class Task {
         this.isCompleted = false;
     }
 
+    public boolean matches(String keyword) {
+        return this.taskName.toLowerCase().contains(keyword.toLowerCase());
+    }
+
     public abstract String toSaveFormat();
 }

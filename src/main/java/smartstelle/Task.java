@@ -60,6 +60,10 @@ public abstract class Task {
         this.isCompleted = false;
     }
 
+    public boolean matches(String keyword) {
+        return this.taskName.toLowerCase().contains(keyword.toLowerCase());
+    }
+
     /**
      * Returns the string representation of the task in the format used for saving
      * to file.

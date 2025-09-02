@@ -67,6 +67,10 @@ public class Parser {
             int num = Integer.parseInt(numberString.substring(1));
             list.delete(num);
             storage.save(list.getAll());
+        } else if (input.startsWith("find")) {
+            String keyword = input.substring(5);
+            list.printTasksWithKeyword(keyword);
+            ui.showLine();
         } else {
             System.out.println("\nWhat are you saying..............\n");
         }

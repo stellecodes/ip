@@ -106,7 +106,7 @@ public class TaskList {
         return this.tasks;
     }
 
-    public String printTasksWithKeyword(String keyword) {
+    public String getTasksWithKeyword(String keyword) {
         ArrayList<Task> selectedTasks = new ArrayList<>();
         for (Task task : this.tasks) {
             if (task.matches(keyword)) {

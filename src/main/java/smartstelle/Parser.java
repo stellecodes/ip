@@ -72,7 +72,7 @@ public class Parser {
             return msg;
         } else if (input.startsWith("find")) {
             String keyword = input.substring(5);
-            return list.printTasksWithKeyword(keyword);
+            return list.getTasksWithKeyword(keyword);
         } else {
             return "What are you saying..............\n";
         }

@@ -23,57 +23,58 @@ public class Parser {
      * @throws StelleException If the user input is invalid or incomplete (e.g.,
      *                         missing deadline or event duration).
      */
-    public static int parse(String input, TaskList list, Storage storage, Ui ui) throws IOException, StelleException {
+    public static String parse(String input, TaskList list, Storage storage, Ui ui) throws IOException, StelleException {
         if (input.equals("bye")) {
-            return -1;
+            return "bye";
         } else if (input.equals("list")) {
-            list.display();
-            ui.showLine();
+            return list.display();
         } else if (input.startsWith("mark")) {
             String taskNum = input.substring(5);
             int num = Integer.parseInt(taskNum); // convert String to int
-            list.mark(num);
+            String msg = list.mark(num);
             storage.save(list.getAll());
-            ui.showLine();
+            return msg;
         } else if (input.startsWith("unmark")) {
             String taskNum = input.substring(7);
             int num = Integer.parseInt(taskNum); // convert String to int
-            list.unmark(num);
+            String msg = list.unmark(num);
             storage.save(list.getAll());
-            ui.showLine();
+            return msg;
         } else if (input.startsWith("todo")) {
             String task = input.substring(4).trim();
-            list.add(new ToDo(task, false));
+            String msg = list.add(new ToDo(task, false));
             storage.save(list.getAll());
+            return msg;
         } else if (input.startsWith("deadline")) {
             String[] parts = input.substring(8).trim().split("\\s*/by\\s+", 2);
             if (parts.length == 1) {
                 throw new StelleException("Why no deadline.");
             }
-            list.add(new Deadline(parts[0], parts[1], false));
+            String msg = list.add(new Deadline(parts[0], parts[1], false));
             storage.save(list.getAll());
+            return msg;
         } else if (input.startsWith("event")) {
             String[] parts = input.substring(6).split(" /");
             if (parts.length < 2) {
                 throw new StelleException("Why you dk how long.");
             }
-            list.add(new Event(parts[1].substring(5), parts[2].substring(3), parts[0], false));
+            String msg = list.add(new Event(parts[1].substring(5), parts[2].substring(3), parts[0], false));
             storage.save(list.getAll());
+            return msg;
         } else if (input.startsWith("delete")) {
             String numberString = input.substring(6);
             if (numberString.isEmpty()) {
                 throw new StelleException("Why you deleting nothing.");
             }
             int num = Integer.parseInt(numberString.substring(1));
-            list.delete(num);
+            String msg = list.delete(num);
             storage.save(list.getAll());
+            return msg;
         } else if (input.startsWith("find")) {
             String keyword = input.substring(5);
-            list.printTasksWithKeyword(keyword);
-            ui.showLine();
+            return list.getTasksWithKeyword(keyword);
         } else {
-            System.out.println("\nWhat are you saying..............\n");
+            return "What are you saying..............\n";
         }
-        return 0;
     }
 }

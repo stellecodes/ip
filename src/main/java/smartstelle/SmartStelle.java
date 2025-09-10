@@ -1,6 +1,7 @@
 package smartstelle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * The SmartStelle class is the main entry point for the SmartStelle task
@@ -48,7 +49,7 @@ public class SmartStelle {
         while (true) {
             String input = ui.readCommand();
             try {
-                if (Parser.parse(input, tasks, storage, ui) == -1) {
+                if (Objects.equals(Parser.parse(input, tasks, storage, ui), "bye")) {
                     break;
                 }
             } catch (Exception e) {
@@ -59,7 +60,11 @@ public class SmartStelle {
         ui.showGoodbye();
     }
 
-    public static void main(String[] args) {
-        new SmartStelle("data/tasks.txt").run();
+    public String getResponse(String input) {
+        try {
+            return Parser.parse(input, tasks, storage, ui);
+        } catch (IOException | StelleException e) {
+            return e.getMessage();
+        }
     }
 }

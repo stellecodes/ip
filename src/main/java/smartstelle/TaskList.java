@@ -37,23 +37,24 @@ public class TaskList {
      *
      * @param task The task to add.
      */
-    public void add(Task task) {
+    public String add(Task task) {
         this.total += 1;
         this.tasks.add(task);
-        System.out.println(
-                "    added new task: " + task.getName());
-        System.out.println("Now you have " + total
-                + " tasks in the list.\n\n____________________________________________________________\n");
+        return "    added new task: " + task.getName() + "Now you have " + total + " tasks in the list.";
     }
 
     /**
      * Displays all tasks in the list with numbering.
      */
-    public void display() {
+    public String display() {
+        StringBuilder msg = new StringBuilder();
+
         for (int i = 0; i < this.tasks.size(); i++) {
             int num = i + 1;
-            System.out.println("    " + num + "." + tasks.get(i).display());
+            msg.append("    ").append(num).append(".").append(tasks.get(i).display());
         }
+
+        return msg.toString();
     }
 
     /**
@@ -62,9 +63,9 @@ public class TaskList {
      * 
      * @param num The 1-based index of the task to mark as completed.
      */
-    public void mark(int num) {
+    public String mark(int num) {
         this.tasks.get(num - 1).mark();
-        System.out.println("Yay! I've marked this task as done:\n    " + this.tasks.get(num - 1).display());
+        return "Yay! I've marked this task as done:\n    " + this.tasks.get(num - 1).display();
     }
 
     /**
@@ -73,9 +74,9 @@ public class TaskList {
      * 
      * @param num The 1-based index of the task to unmark.
      */
-    public void unmark(int num) {
+    public String unmark(int num) {
         this.tasks.get(num - 1).unmark();
-        System.out.println("Okay, I've marked this task as not done:\n    " + this.tasks.get(num - 1).display());
+        return "Okay, I've marked this task as not done:\n    " + this.tasks.get(num - 1).display();
     }
 
     /**
@@ -86,16 +87,14 @@ public class TaskList {
      * @param num The 1-based index of the task to delete.
      * @throws StelleException If the task number is invalid.
      */
-    public void delete(int num) throws StelleException {
+    public String delete(int num) throws StelleException {
         if (num > this.tasks.size()) {
             throw new StelleException("That task doesn't even exist.");
         }
         Task task = this.tasks.get(num - 1);
         this.tasks.remove(num - 1);
         this.total -= 1;
-        System.out.println("Okay, I've removed this task:\n    " + task.display());
-        System.out.println("Now you have " + total
-                + " tasks in the list.\n\n____________________________________________________________\n");
+        return "Okay, I've removed this task:\n    " + task.display() + "Now you have " + total + " tasks in the list.";
     }
 
     /**
@@ -107,7 +106,7 @@ public class TaskList {
         return this.tasks;
     }
 
-    public void printTasksWithKeyword(String keyword) {
+    public String getTasksWithKeyword(String keyword) {
         ArrayList<Task> selectedTasks = new ArrayList<>();
         for (Task task : this.tasks) {
             if (task.matches(keyword)) {
@@ -116,6 +115,6 @@ public class TaskList {
         }
 
         TaskList selectedTasksList = new TaskList(selectedTasks);
-        selectedTasksList.display();
+        return selectedTasksList.display();
     }
 }

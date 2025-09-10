@@ -59,9 +59,9 @@ public class Ui {
      *
      * @param msg The message to display.
      */
-    public void showMessage(String msg) {
-        System.out.println(msg);
-    }
+//    public String showMessage(String msg) {
+//        System.out.println(msg);
+//    }
 
     /**
      * Displays an error message to the user with a decorative border for emphasis.

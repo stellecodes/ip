@@ -19,6 +19,8 @@ public abstract class Task {
      * @throws StelleException If the task name is empty.
      */
     public Task(String taskName, boolean isCompleted) throws StelleException {
+        assert taskName != null : "Task name must not be null";
+
         if (taskName.isEmpty()) {
             throw new StelleException("Why you doing nothing.");
         }
@@ -35,6 +37,8 @@ public abstract class Task {
      * @return The display string of the task.
      */
     public String display() {
+        assert taskName != null && !taskName.isEmpty() : "Task name must be valid";
+
         return "[" + (isCompleted ? "X" : " ") + "] " + this.taskName;
     }
 
@@ -61,6 +65,8 @@ public abstract class Task {
     }
 
     public boolean matches(String keyword) {
+        assert keyword != null : "Keyword must not be null";
+
         return this.taskName.toLowerCase().contains(keyword.toLowerCase());
     }
 

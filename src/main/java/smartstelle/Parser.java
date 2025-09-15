@@ -24,18 +24,24 @@ public class Parser {
      *                         missing deadline or event duration).
      */
     public static String parse(String input, TaskList list, Storage storage, Ui ui) throws IOException, StelleException {
+        assert input != null && !input.trim().isEmpty() : "User input must not be null or empty";
+
         if (input.equals("bye")) {
             return "bye";
         } else if (input.equals("list")) {
             return list.display();
         } else if (input.startsWith("mark")) {
             String taskNum = input.substring(5);
+            assert !taskNum.isEmpty() : "Mark command should include a task number";
+
             int num = Integer.parseInt(taskNum); // convert String to int
             String msg = list.mark(num);
             storage.save(list.getAll());
             return msg;
         } else if (input.startsWith("unmark")) {
             String taskNum = input.substring(7);
+            assert !taskNum.isEmpty() : "Unmark command should include a task number";
+
             int num = Integer.parseInt(taskNum); // convert String to int
             String msg = list.unmark(num);
             storage.save(list.getAll());

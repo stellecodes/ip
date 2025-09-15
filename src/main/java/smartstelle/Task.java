@@ -8,7 +8,7 @@ package smartstelle;
  * a completion status.
  */
 public abstract class Task {
-    private String taskName;
+    private final String taskName;
     private boolean isCompleted;
 
     /**
@@ -19,7 +19,7 @@ public abstract class Task {
      * @throws StelleException If the task name is empty.
      */
     public Task(String taskName, boolean isCompleted) throws StelleException {
-        if (taskName.isEmpty()) {
+        if (taskName == null || taskName.isEmpty()) {
             throw new StelleException("Why you doing nothing.");
         }
         this.taskName = taskName;
@@ -61,6 +61,7 @@ public abstract class Task {
     }
 
     public boolean matches(String keyword) {
+        if (keyword == null) return false;
         return this.taskName.toLowerCase().contains(keyword.toLowerCase());
     }
 

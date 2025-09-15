@@ -45,7 +45,7 @@ test {
 }
 
 application {
-    mainClass.set("smartstelle.Launcher")
+    mainClass.set("smartstelle.Launcher") // For GUI
 }
 
 shadowJar {

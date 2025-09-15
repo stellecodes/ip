@@ -52,7 +52,7 @@ public class SmartStelle {
                 if (Objects.equals(Parser.parse(input, tasks, storage, ui), "bye")) {
                     break;
                 }
-            } catch (Exception e) {
+            } catch (IOException | StelleException e) {
                 ui.showError(e.getMessage());
             }
         }

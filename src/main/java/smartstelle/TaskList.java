@@ -39,8 +39,12 @@ public class TaskList {
      *
      * @param task The task to add.
      */
-    public String add(Task task) {
+    public String add(Task task) throws StelleException {
         assert task != null : "Task to add must not be null";
+
+        if (this.tasks.contains(task)) {
+            throw new StelleException("This task already exists in your list.");
+        }
 
         this.total += 1;
         this.tasks.add(task);

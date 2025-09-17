@@ -26,6 +26,8 @@ public class TaskList {
      * @param tasks The initial list of tasks.
      */
     public TaskList(ArrayList<Task> tasks) {
+        assert tasks != null : "Initial tasks list must not be null";
+
         this.tasks = tasks;
         this.total = tasks.size();
     }
@@ -38,6 +40,8 @@ public class TaskList {
      * @param task The task to add.
      */
     public String add(Task task) {
+        assert task != null : "Task to add must not be null";
+
         this.total += 1;
         this.tasks.add(task);
         return "    added new task: " + task.getName() + "Now you have " + total + " tasks in the list.";
@@ -64,6 +68,8 @@ public class TaskList {
      * @param num The 1-based index of the task to mark as completed.
      */
     public String mark(int num) {
+        assert num > 0 && num <= tasks.size() : "Task number must be valid";
+
         this.tasks.get(num - 1).mark();
         return "Yay! I've marked this task as done:\n    " + this.tasks.get(num - 1).display();
     }
@@ -75,6 +81,8 @@ public class TaskList {
      * @param num The 1-based index of the task to unmark.
      */
     public String unmark(int num) {
+        assert num > 0 && num <= tasks.size() : "Task number must be valid";
+
         this.tasks.get(num - 1).unmark();
         return "Okay, I've marked this task as not done:\n    " + this.tasks.get(num - 1).display();
     }
@@ -88,9 +96,12 @@ public class TaskList {
      * @throws StelleException If the task number is invalid.
      */
     public String delete(int num) throws StelleException {
+        assert num > 0 : "Task number must be positive";
+
         if (num > this.tasks.size()) {
             throw new StelleException("That task doesn't even exist.");
         }
+
         Task task = this.tasks.get(num - 1);
         this.tasks.remove(num - 1);
         this.total -= 1;

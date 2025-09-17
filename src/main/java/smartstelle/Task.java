@@ -68,6 +68,23 @@ public abstract class Task {
         assert keyword != null : "Keyword must not be null";
         return this.taskName.toLowerCase().contains(keyword.toLowerCase());
     }
+`
+    private boolean equalsIgnoringCase(Task task) {
+        return this.getName().toLowerCase().equals(task.getName().toLowerCase());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Task)) {
+            return false;
+        }
+
+        Task other = (Task) obj;
+        return this.equalsIgnoringCase(other) && this.getIsCompleted() == other.getIsCompleted();
+    }
 
     /**
      * Returns the string representation of the task in the format used for saving

@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 public class Event extends Task {
     private LocalDateTime start;
     private LocalDateTime end;
+    private static final DateTimeFormatter DISPLAY_FORMAT = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
 
     /**
      * Constructs a new Event task with start and end date/time, a name, and
@@ -40,8 +41,8 @@ public class Event extends Task {
      * @return Formatted start and end date/time string.
      */
     private String formatDate() {
-        return "from " + this.start.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm")) + " to "
-                + this.end.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm"));
+        return "from " + this.start.format(DISPLAY_FORMAT) + " to "
+                + this.end.format(DISPLAY_FORMAT);
     }
 
     /**

@@ -14,6 +14,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private SmartStelle smartStelle;
+    private static final double MIN_HEIGHT = 220;
+    private static final double MIN_WIDTH = 417;
+    private static final double MAX_WIDTH = 417;
 
     @Override
     public void start(Stage stage) {
@@ -24,11 +27,11 @@ public class Main extends Application {
             Scene scene = new Scene(ap);
             stage.setScene(scene);
 
-            stage.setMinHeight(220);
-            stage.setMinWidth(417);
-            stage.setMaxWidth(417);
+            stage.setMinHeight(MIN_HEIGHT);
+            stage.setMinWidth(MIN_WIDTH);
+            stage.setMaxWidth(MAX_WIDTH);
 
-            fxmlLoader.<MainWindow>getController().setSmartStelle(smartStelle);  // inject the Duke instance
+            fxmlLoader.<MainWindow>getController().setSmartStelle(smartStelle);  // inject the SmartStelle instance
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

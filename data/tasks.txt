@@ -1,6 +1,5 @@
-T | 1 | eat
+T | 0 | eat
 T | 0 | sleep
-T | 0 | eat
-T | 0 | eat
-T | 1 | die
-T | 1 | die
+D | 0 | die | 2025-09-20T14:30
+D | 1 | ghghg | 2025-09-20T14:30
+D | 0 | sjiosj | 2025-09-20T14:30

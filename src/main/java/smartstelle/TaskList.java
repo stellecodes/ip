@@ -48,7 +48,7 @@ public class TaskList {
 
         this.total += 1;
         this.tasks.add(task);
-        return "    added new task: " + task.getName() + "Now you have " + total + " tasks in the list.";
+        return "    added new task: " + task.getName() + ". Now you have " + total + " tasks in the list.";
     }
 
     /**
@@ -109,7 +109,7 @@ public class TaskList {
         Task task = this.tasks.get(num - 1);
         this.tasks.remove(num - 1);
         this.total -= 1;
-        return "Okay, I've removed this task:\n    " + task.display() + "Now you have " + total + " tasks in the list.";
+        return "Okay, I've removed this task:\n    " + task.display() + ". Now you have " + total + " tasks in the list.";
     }
 
     /**

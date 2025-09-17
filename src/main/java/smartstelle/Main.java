@@ -27,6 +27,8 @@ public class Main extends Application {
             Scene scene = new Scene(ap);
             stage.setScene(scene);
 
+            stage.setTitle("SmartStelle");
+
             stage.setMinHeight(MIN_HEIGHT);
             stage.setMinWidth(MIN_WIDTH);
             stage.setMaxWidth(MAX_WIDTH);

@@ -27,6 +27,7 @@ public class Parser {
     public static String parse(String input, TaskList list, Storage storage, Ui ui) throws IOException, StelleException {
         assert input != null && !input.trim().isEmpty() : "User input must not be null or empty";
 
+        // Use of ChatGPT to change long if-else to switch
         String[] tokens = input.trim().split("\\s+", 2);
         String command = tokens[0];
         String args = tokens.length > 1 ? tokens[1] : "";

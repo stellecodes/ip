@@ -1,5 +1,6 @@
 package smartstelle;
 
+import javafx.application.Platform;
 import java.io.IOException;
 
 /**
@@ -27,6 +28,7 @@ public class Parser {
         assert input != null && !input.trim().isEmpty() : "User input must not be null or empty";
 
         if (input.equals("bye")) {
+            Platform.exit();
             return "bye";
         } else if (input.equals("list")) {
             return list.display();
